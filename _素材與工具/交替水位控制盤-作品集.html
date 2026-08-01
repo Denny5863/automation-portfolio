@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交替水位控制盤 · 專案作品集</title>
+<style>
+:root{
+  --paper:#F7F5EF; --card:#FFFFFF; --ink:#181510; --soft:#4C463B; --line:#DAD3C4;
+  --green:#234634; --green-lt:#E4ECE5; --gold:#87610F; --gold-lt:#F3E8CF;
+  --dark:#120F08;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+.mono{font-family:"Cascadia Code",Consolas,monospace}
+a.back{display:inline-block;margin:22px 26px 0;color:var(--soft);font-size:13.5px;text-decoration:none}
+a.back:hover{color:var(--green)}
+
+.hero{background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(176,129,47,.16), transparent 60%),
+    linear-gradient(150deg,#191710 0%,#20211b 55%,#14140f 100%);
+  color:#F3EEE2;padding:40px 0 66px;position:relative;overflow:hidden}
+.hero .wrap{position:relative}
+.hero .kick{letter-spacing:.42em;font-size:12.5px;color:#E0BE7C;font-weight:700;margin:0 0 18px}
+.hero h1{font-size:clamp(28px,4.6vw,46px);line-height:1.2;margin:0 0 18px;font-weight:800;letter-spacing:.01em;color:#FBF7EE}
+.hero h1 b{color:#EBC989;font-weight:800}
+.hero .lede{font-size:clamp(15px,2.1vw,18.5px);color:#E7E1D3;max-width:40em;margin:0 0 30px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid rgba(226,204,157,.45);color:#F0E7D2;border-radius:999px;
+  padding:7px 15px;font-size:13.5px;background:rgba(255,255,255,.06)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:-38px 0 0;
+  position:relative;z-index:2;box-shadow:0 22px 50px -30px rgba(30,25,15,.5)}
+.stat{background:var(--card);padding:22px 20px;text-align:center}
+.stat b{display:block;font-size:clamp(20px,3.2vw,28px);color:var(--green);font-weight:800;line-height:1.15;font-family:"Cascadia Code",Consolas,monospace}
+.stat span{display:block;font-size:12.5px;color:var(--soft);margin-top:6px}
+
+section{padding:58px 0 8px}
+.eyebrow{font-size:12.5px;letter-spacing:.24em;color:var(--gold);font-weight:800;text-transform:uppercase;margin:0 0 10px}
+.h2{font-size:clamp(23px,3.4vw,30px);font-weight:800;margin:0 0 12px;letter-spacing:.01em}
+.sec-intro{color:var(--soft);max-width:44em;margin:0 0 30px;font-size:15.5px}
+
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
+.about .lead{font-size:17px;line-height:1.85}
+.about .lead p{margin:0 0 16px}
+.aside{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.aside h4{margin:0 0 14px;font-size:14px;letter-spacing:.05em;color:var(--gold)}
+.aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:14.5px}
+.aside dt{color:var(--soft)}
+.aside dd{margin:0;font-weight:600;text-align:right}
+
+.feats{display:flex;flex-direction:column;gap:30px}
+.feat{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4)}
+.feat:nth-child(even){grid-template-columns:.85fr 1.15fr}
+.feat:nth-child(even) .feat-body{order:-1}
+.feat-shot{margin:0;background:var(--dark);height:100%;display:flex;align-items:center;padding:20px}
+.feat-shot img{width:100%;border-radius:9px;display:block;box-shadow:0 12px 30px -14px rgba(0,0,0,.6)}
+.feat-body{padding:26px 30px}
+.feat-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--green);
+  background:var(--green-lt);border-radius:6px;padding:4px 10px;margin-bottom:10px}
+.feat-body h3{margin:0 0 8px;font-size:21px;font-weight:800}
+.feat-body p{margin:0 0 12px;color:var(--soft);font-size:15px}
+.feat-body ul{margin:0;padding-left:18px}
+.feat-body li{margin:5px 0;font-size:14.5px}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.gal figure{margin:0;background:var(--dark);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  box-shadow:0 10px 26px -20px rgba(30,25,15,.5)}
+.gal img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top center;
+  border-bottom:1px solid rgba(255,255,255,.05)}
+.gal figcaption{color:#ECE4D2;font-size:13px;line-height:1.5;padding:11px 14px;background:#1a1710}
+
+.techgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;
+  box-shadow:0 2px 4px rgba(30,25,15,.03),0 14px 34px -28px rgba(30,25,15,.4)}
+.tcard h4{margin:0 0 7px;font-size:16.5px;font-weight:800}
+.tcard p{margin:0;color:var(--soft);font-size:14px;line-height:1.65}
+.stacktags{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px}
+.stacktags span{border:1px solid var(--line);background:var(--card);border-radius:8px;
+  padding:7px 13px;font-size:13.5px;font-weight:600;font-family:"Cascadia Code",Consolas,monospace}
+
+.note{background:var(--green-lt);border:1px solid var(--line);border-radius:16px;padding:22px 26px;color:var(--soft);font-size:14.5px}
+.note b{color:var(--ink)}
+
+footer{margin-top:60px;border-top:1px solid var(--line);padding:26px 0 60px;color:var(--soft);font-size:13px;text-align:center}
+.name-slot{display:inline-block;border-bottom:1.5px dashed #C7BEAE;color:#B9AE99;padding:0 26px;margin:0 4px}
+
+@media (max-width:820px){
+  .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
+  .about{grid-template-columns:1fr}
+  .feat,.feat:nth-child(even){grid-template-columns:1fr}
+  .feat:nth-child(even) .feat-body{order:0}
+  .techgrid{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+}
+@media print{
+  body{font-size:11pt}
+  .hero{background:#1b1912 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:22px 0 4px;break-inside:avoid}
+  .feat,.tcard{break-inside:avoid}
+  a.back{display:none}
+}
+</style>
+</head>
+<body>
+
+<a class="back" href="../index.html">← 返回作品集</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kick">現職代表案例 · FIELD WORK</p>
+    <h1>交替水位控制盤<br><b>配電盤製作與現場施工</b></h1>
+    <p class="lede">公司承接的水位交替啟動控制盤專案,兩面盤(A盤／B盤)、四顆軟啟動器控制四顆抽水馬達,依電氣單線圖與控制圖完成元器件佈置與配線施工——是我目前獨立完成過最複雜的配電盤案例。</p>
+    <div class="hero-meta">
+      <span class="chip">OMRON 61F-G4 水位偵測</span>
+      <span class="chip">SMC 軟啟動器 ×4</span>
+      <span class="chip">A/B 兩盤交替設計</span>
+      <span class="chip">單線圖／控制圖判讀</span>
+      <span class="chip">銅排配線</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>2</b><span>面盤(A盤／B盤交替)</span></div>
+    <div class="stat"><b>4</b><span>顆 SMC 軟啟動器</span></div>
+    <div class="stat"><b>4</b><span>組抽水馬達控制迴路</span></div>
+    <div class="stat"><b>OMRON</b><span>水位偵測 + 繼電器保護</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section id="about">
+    <p class="eyebrow">任務背景</p>
+    <h2 class="h2">儲水槽/給水槽交替抽水,缺水溢水都要防</h2>
+    <div class="about">
+      <div class="lead">
+        <p>這是公司承接的水位控制盤專案:透過 OMRON 61F-G4 無浮球水位開關(Floatless Level Switch)偵測儲水槽與給水槽的水位,控制四顆抽水馬達交替啟動抽水,並在缺水(LL)、溢水(LH)時觸發警報與保護動作。四台馬達搭配 SMC(Soft Start Pump Motor Controller)軟啟動器,避免馬達啟動瞬間電流衝擊。</p>
+        <p>整組控制迴路依負載拆成 A盤／B盤 兩面盤(圖面標示 EPA／EPB),我負責的是依公司提供的單線圖與控制圖,精確完成兩面盤內部的元器件佈置、繼電器與軟啟動器配線、端子壓接與線號標示。電路設計由公司圖面部門完成,我的角色是把圖面**準確、安全地變成實體盤**——這正是「照圖配盤」現場實務的核心能力。</p>
+        <p>這也是我目前實際完成過,元件數量與迴路複雜度最高的配電盤案例。</p>
+      </div>
+      <aside class="aside">
+        <h4>案例資訊</h4>
+        <dl>
+          <dt>類型</dt><dd>現職工作案例</dd>
+          <dt>我的角色</dt><dd>依圖施工配線</dd>
+          <dt>核心元件</dt><dd>OMRON 繼電器/水位開關、SMC 軟啟動器</dd>
+          <dt>圖面</dt><dd>單線圖、控制圖(公司提供)</dd>
+          <dt>盤面數</dt><dd>2 面(A/B 交替)</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section id="features">
+    <p class="eyebrow">施工重點</p>
+    <h2 class="h2">從讀圖到成品,四個關鍵環節</h2>
+    <div class="feats">
+
+      <div class="feat">
+        <div class="feat-body">
+          <span class="feat-tag">圖面判讀</span>
+          <h3>看懂 EPA/EPB 交替邏輯與繼電器連動</h3>
+          <p>控制圖上 X1~X4、R1~R4 等繼電器彼此連動,搭配 ON/OFF 按鈕與 EX(互鎖)迴路,決定兩面盤何時交替啟動、何時互相鎖定;施工前要先讀懂整份圖的邏輯關係,才不會接錯線。</p>
+          <ul>
+            <li>單線圖 + 控制圖對照判讀</li>
+            <li>EPA／EPB 交替控制迴路邏輯</li>
+            <li>ON/OFF、互鎖(EX)迴路關係確認</li>
+          </ul>
+        </div>
+        <figure class="feat-shot"><img src="../assets/panel-drawing.jpg" alt="控制電路圖(公司資訊已馬賽克)"></figure>
+      </div>
+
+      <div class="feat">
+        <div class="feat-body">
+          <span class="feat-tag">元器件佈置與配線</span>
+          <h3>OMRON 繼電器組 + 水位開關 + 軟啟動器</h3>
+          <p>盤內佈置 OMRON 61F-11 繼電器組與 61F-G4 水位開關,搭配四組 SMC 軟啟動器(SOFT START PUMP MOTOR CONTROLLER)控制四顆馬達;所有配線依線號標示逐一壓接,確保盤面整齊、日後維護好追蹤。</p>
+          <ul>
+            <li>OMRON 61F-11 繼電器 + 61F-G4 水位開關佈線</li>
+            <li>SMC 軟啟動器 R/S/T、U/V/W 動力配線</li>
+            <li>端子壓接、線號標示,盤面整齊可追蹤</li>
+          </ul>
+        </div>
+        <figure class="feat-shot"><img src="../assets/panel-overview2.jpg" alt="配電盤整體實拍"></figure>
+      </div>
+
+      <div class="feat">
+        <div class="feat-body">
+          <span class="feat-tag">保護迴路</span>
+          <h3>缺水、溢水、過載都要有保護動作</h3>
+          <p>儲水槽/給水槽各設缺水(LL)、溢水(LH)偵測點,搭配過載保護(OL1~OL4)與警報繼電器(R1~R4,MY2N),任何異常狀況都要能正確觸發保護、不誤動作也不漏動作。</p>
+          <ul>
+            <li>儲水槽／給水槽缺水、溢水偵測點配線</li>
+            <li>OL1~OL4 過載保護迴路</li>
+            <li>R1~R4 警報繼電器(MY2N)配線</li>
+          </ul>
+        </div>
+        <figure class="feat-shot"><img src="../assets/panel-detail1.jpg" alt="控制迴路端子細節"></figure>
+      </div>
+
+      <div class="feat">
+        <div class="feat-body">
+          <span class="feat-tag">送電前測試</span>
+          <h3>接完不是結束,通電確認才算數</h3>
+          <p>配線完成後依圖面逐點檢查、量測迴路是否正確,再進行送電前測試,確認各繼電器動作、馬達運轉方向與保護迴路都符合設計,現場除錯排除配線異常。</p>
+          <ul>
+            <li>迴路量測與逐點檢查</li>
+            <li>送電前測試、動作確認</li>
+            <li>現場除錯,排除配線異常</li>
+          </ul>
+        </div>
+        <figure class="feat-shot"><img src="../assets/panel-detail2.jpg" alt="端子排接線細節"></figure>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery">
+    <p class="eyebrow">實作紀錄</p>
+    <h2 class="h2">現場照片</h2>
+    <div class="gal">
+      <figure><img src="../assets/panel-overview2.jpg" alt="配電盤整體"><figcaption>配電盤整體佈局</figcaption></figure>
+      <figure><img src="../assets/panel-detail1.jpg" alt="端子細節1"><figcaption>控制迴路端子接線</figcaption></figure>
+      <figure><img src="../assets/panel-detail2.jpg" alt="端子細節2"><figcaption>端子排配線細節</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="tech">
+    <p class="eyebrow">用到的元件與能力</p>
+    <h2 class="h2">現場電控的核心技能</h2>
+    <div class="techgrid">
+      <div class="tcard">
+        <h4>感測與保護</h4>
+        <p>OMRON 61F-G4 無浮球水位開關、缺水/溢水偵測、OL 過載保護</p>
+      </div>
+      <div class="tcard">
+        <h4>控制與驅動</h4>
+        <p>OMRON 61F-11 繼電器、SMC 軟啟動器、馬達正常啟停控制</p>
+      </div>
+      <div class="tcard">
+        <h4>圖面與施工</h4>
+        <p>單線圖／控制圖判讀、銅排配線、端子壓接、線號標示</p>
+      </div>
+    </div>
+    <div class="stacktags">
+      <span>OMRON 61F-11</span><span>OMRON 61F-G4</span><span>SMC 軟啟動器</span>
+      <span>MY2N 繼電器</span><span>單線圖</span><span>控制圖</span><span>銅排配線</span>
+    </div>
+  </section>
+
+  <section id="note">
+    <div class="note">
+      這個案例的圖面設計並非我本人繪製,我負責的是**依圖精確施工**——從讀懂交替控制邏輯、元器件佈置、配線到送電測試。這正是「工業配線競賽選手」這個背景真正落地的地方:圖面看得懂、線接得準、現場問題排得掉。
+    </div>
+  </section>
+
+  <footer>
+    作品集 · <span class="name-slot">聯絡方式應徵時提供</span>
+  </footer>
+
+</div>
+</body>
+</html>
