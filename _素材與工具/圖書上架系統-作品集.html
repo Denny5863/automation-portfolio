@@ -82,7 +82,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <p class="lede">圖書歸還後不用人工判讀書名、找位置再上架,這套系統靠攝影機直接辨識書背文字,配合機器人自動送回書架,不用貼任何條碼或標籤。跑了 2,723 筆實驗數據驗證辨識穩定度,發表過一場學術研討會海報論文。</p>
   <div class="badges">
     <span class="badge">Logitech C270 + OCR</span>
-    <span class="badge">ESP32 紅外線感測</span>
+    <span class="badge">ESP32 韌體開發(C/C++)</span>
     <span class="badge">EV3Dev 機器人</span>
     <span class="badge">LINE Bot</span>
     <span class="badge">PHP + MySQL</span>
@@ -137,7 +137,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
 <figure class="imgblock"><img src="../assets/thesis-linebot-shot.png" alt="LINE Bot實際查詢對話畫面"></figure>
 
 <h3>硬體與資料層 — 單一資料表 + 旗標接力</h3>
-<p>感測電路用 Altium Designer 設計並手工雕刻 PCB,搭配 3D 列印外殼整合模組。核心設計是用一張 DATA 表當唯一資料來源(書名、座標、status、wait/take/put 等旗標欄位),影像辨識、EV3、ESP32、LINE Bot 四端不直接溝通,全部透過 PHP API 讀寫同一張表的旗標接力——任一端故障不會卡死其他端。另設 OCR_LOG 實驗記錄表跟 BORROW_RANK 借閱排行表。</p>
+<p>感測電路用 Altium Designer 設計並手工雕刻 PCB,搭配 3D 列印外殼整合模組。ESP32 端韌體用 C/C++(Arduino 框架)撰寫,輪詢 9 顆紅外線感測器讀值判斷書架格位是否有書,再呼叫雲端 API 回寫狀態。核心設計是用一張 DATA 表當唯一資料來源(書名、座標、status、wait/take/put 等旗標欄位),影像辨識、EV3、ESP32、LINE Bot 四端不直接溝通,全部透過 PHP API 讀寫同一張表的旗標接力——任一端故障不會卡死其他端。另設 OCR_LOG 實驗記錄表跟 BORROW_RANK 借閱排行表。</p>
 <ul class="plain">
   <li>旗標接力:辨識設 wait='ok' → EV3 收到出發 → 紅外線改 status='on' → LINE 查 status 回報位置</li>
   <li>四端資料庫存取 &lt;200ms,LINE 回應約 0.5~1 秒</li>
