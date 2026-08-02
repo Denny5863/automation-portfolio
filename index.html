@@ -6,253 +6,136 @@
 <title>作品集 · 軟硬整合工程師</title>
 <style>
 :root{
-  --paper:#F7F5EF; --card:#FFFFFF; --ink:#181510; --soft:#4C463B; --line:#DAD3C4;
-  --green:#234634; --green-lt:#E4ECE5; --gold:#87610F; --gold-lt:#F3E8CF;
-  --dark:#120F08;
+  --bg:#ffffff; --text:#1a1a1a; --soft:#57606a; --border:#d0d7de;
+  --code-bg:#f6f8fa; --link:#0969da; --ok:#1a7f37;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
-  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
-.mono{font-family:"Cascadia Code",Consolas,monospace}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:15.5px;line-height:1.65}
+.mono{font-family:"Cascadia Code",Consolas,"SFMono-Regular",monospace}
+.wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+a{color:var(--link)}
 
-/* Hero */
-.hero{background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(176,129,47,.16), transparent 60%),
-    linear-gradient(150deg,#191710 0%,#20211b 55%,#14140f 100%);
-  color:#F3EEE2;padding:76px 0 66px;position:relative;overflow:hidden}
-.hero .wrap{position:relative}
-.hero .kick{letter-spacing:.42em;font-size:12.5px;color:#E0BE7C;font-weight:700;margin:0 0 18px}
-.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.12;margin:0 0 18px;font-weight:800;letter-spacing:.01em;color:#FBF7EE}
-.hero h1 b{color:#EBC989;font-weight:800}
-.hero .lede{font-size:clamp(15px,2.1vw,18.5px);color:#E7E1D3;max-width:40em;margin:0 0 30px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px}
-.chip{border:1px solid rgba(226,204,157,.45);color:#F0E7D2;border-radius:999px;
-  padding:7px 15px;font-size:13.5px;background:rgba(255,255,255,.06)}
+header.top{border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:28px}
+header.top .name-slot{display:inline-block;border-bottom:1px dashed #999;color:#888;padding:0 10px}
+header.top h1{font-size:24px;margin:6px 0 8px;font-weight:700}
+header.top .role{color:var(--soft);font-size:15px;margin:0 0 14px}
+header.top .lede{margin:0 0 14px;max-width:70ch}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-family:"Cascadia Code",Consolas,monospace;font-size:12px;border:1px solid var(--border);
+  border-radius:4px;padding:2px 8px;color:var(--soft);background:var(--code-bg)}
 
-/* stat band */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-  border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:-38px 0 0;
-  position:relative;z-index:2;
-  box-shadow:0 22px 50px -30px rgba(30,25,15,.5)}
-.stat{background:var(--card);padding:22px 20px;text-align:center}
-.stat b{display:block;font-size:clamp(22px,3.6vw,30px);color:var(--green);font-weight:800;line-height:1.1;font-family:"Cascadia Code",Consolas,monospace}
-.stat span{display:block;font-size:12.5px;color:var(--soft);margin-top:6px}
+h2{font-size:18px;margin:34px 0 4px;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:8px}
+h2 .idx{color:var(--soft);font-weight:400;margin-right:6px}
+p{margin:10px 0}
+.small{color:var(--soft);font-size:13.5px}
 
-/* sections */
-section{padding:58px 0 8px}
-.eyebrow{font-size:12.5px;letter-spacing:.24em;color:var(--gold);font-weight:800;text-transform:uppercase;margin:0 0 10px}
-.h2{font-size:clamp(23px,3.4vw,30px);font-weight:800;margin:0 0 12px;letter-spacing:.01em}
-.sec-intro{color:var(--soft);max-width:44em;margin:0 0 30px;font-size:15.5px}
+table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px}
+table th,table td{text-align:left;padding:6px 10px;border:1px solid var(--border);vertical-align:top}
+table th{background:var(--code-bg);font-weight:600;width:22%}
 
-/* about */
-.about{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
-.about .lead{font-size:17px;line-height:1.85}
-.about .lead p{margin:0 0 16px}
-.aside{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
-.aside h4{margin:0 0 14px;font-size:14px;letter-spacing:.05em;color:var(--gold)}
-.aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:14.5px}
-.aside dt{color:var(--soft)}
-.aside dd{margin:0;font-weight:600;text-align:right}
+ul.plain{margin:8px 0;padding-left:20px}
+ul.plain li{margin:4px 0}
 
-/* skills */
-.techgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;
-  box-shadow:0 2px 4px rgba(30,25,15,.03),0 14px 34px -28px rgba(30,25,15,.4)}
-.tcard h4{margin:0 0 10px;font-size:16.5px;font-weight:800;color:var(--green)}
-.stacktags{display:flex;flex-wrap:wrap;gap:9px;margin:6px 0 0}
-.stacktags span{border:1px solid var(--line);background:var(--paper);border-radius:8px;
-  padding:7px 13px;font-size:13.5px;font-weight:600;font-family:"Cascadia Code",Consolas,monospace}
+.worklist{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.workitem{border:1px solid var(--border);border-radius:6px;padding:16px 18px;margin-bottom:14px;text-decoration:none;color:inherit;display:block}
+.workitem:hover{border-color:var(--link)}
+.workitem .tag{font-family:"Cascadia Code",Consolas,monospace;font-size:11.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.04em}
+.workitem h3{margin:4px 0 6px;font-size:16.5px;font-weight:700;color:var(--text)}
+.workitem p{margin:0 0 8px;color:var(--soft);font-size:14px}
+.workitem .thumb{width:100%;max-height:220px;object-fit:cover;border:1px solid var(--border);border-radius:4px;margin-top:8px}
+.workitem code.stat{background:var(--code-bg);border:1px solid var(--border);border-radius:3px;padding:1px 5px;font-size:13px}
 
-/* certs */
-.certlist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.certitem{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
-  border-radius:12px;padding:14px 16px;font-size:14.5px}
-.certitem .lvl{flex:none;font-size:12px;font-weight:800;color:var(--gold);background:var(--gold-lt);
-  border-radius:999px;padding:4px 11px}
-
-/* work cards */
-.works{display:flex;flex-direction:column;gap:26px}
-.workcard{display:grid;grid-template-columns:1.15fr .85fr;gap:0;
-  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4);
-  text-decoration:none;color:inherit}
-.workcard.disabled{opacity:.72;cursor:default}
-.wc-body{padding:30px 32px;display:flex;flex-direction:column;justify-content:center}
-.wc-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--green);
-  background:var(--green-lt);border-radius:6px;padding:4px 10px;margin-bottom:12px;align-self:flex-start}
-.wc-tag.soon{color:var(--gold);background:var(--gold-lt)}
-.wc-body h3{margin:0 0 10px;font-size:22px;font-weight:800}
-.wc-body p{margin:0 0 14px;color:var(--soft);font-size:15px}
-.wc-body ul{margin:0 0 16px;padding-left:18px}
-.wc-body li{margin:5px 0;font-size:14px;color:var(--soft)}
-.wc-cta{font-size:14px;font-weight:700;color:var(--green)}
-.workcard.disabled .wc-cta{color:var(--soft)}
-.wc-shot{background:var(--dark);display:flex;align-items:center;padding:20px}
-.wc-shot img{width:100%;border-radius:9px;display:block;box-shadow:0 12px 30px -14px rgba(0,0,0,.6)}
-
-footer{margin-top:60px;border-top:1px solid var(--line);padding:26px 0 60px;color:var(--soft);font-size:13px;text-align:center}
-.name-slot{display:inline-block;border-bottom:1.5px dashed #C7BEAE;color:#B9AE99;padding:0 26px;margin:0 4px}
-
-@media (max-width:820px){
-  .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
-  .about{grid-template-columns:1fr}
-  .techgrid{grid-template-columns:1fr}
-  .certlist{grid-template-columns:1fr}
-  .workcard{grid-template-columns:1fr}
-  .wc-shot{order:-1}
-}
+footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color:var(--soft);font-size:13px}
 </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <p class="kick">PORTFOLIO</p>
-    <h1>從<b>電控現場</b>到<b>雲端系統</b>的<br>軟硬整合工程師</h1>
-    <p class="lede">工業配線競賽選手出身,現職電力機械器材製造修配業,負責照圖配盤與電控元件裝配;同時具備獨立開發全端系統的實作經驗——這份作品集收錄三個代表作:一套已交付商用的門市管理系統、一份軟硬整合的碩士專題研究,以及現職上獨立完成過最複雜的配電盤案例。</p>
-    <div class="hero-meta">
-      <span class="chip">工業配線 丙級</span>
-      <span class="chip">變壓器裝修 乙級</span>
-      <span class="chip">PLC(三菱 GX Works3)</span>
-      <span class="chip">全端開發(Node.js / React)</span>
-      <span class="chip">資訊工程相關碩士</span>
-    </div>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><b>3</b><span>完整代表作品</span></div>
-    <div class="stat"><b>7</b><span>張技術能力證照</span></div>
-    <div class="stat"><b>即將上線</b><span>髮藝POS系統 · 2026/08 商用試營運</span></div>
-    <div class="stat"><b>PLC + 全端</b><span>軟硬整合雙軌能力</span></div>
-  </div>
-</div>
-
 <div class="wrap">
 
-  <section id="about">
-    <p class="eyebrow">關於我</p>
-    <h2 class="h2">現場硬功夫,加上系統整合能力</h2>
-    <div class="about">
-      <div class="lead">
-        <p>高職電機科畢業,學生時期擔任校隊工業配線競賽選手,熟悉三菱 GX Works3 階梯圖程式與現場配線實務;之後完成資訊工程相關碩士學位,主修軟硬體整合。</p>
-        <p>目前任職於電力機械器材製造修配業,負責依電氣圖面進行控制盤配線、電控元件裝配與現場除錯。工作之外,我獨立設計並開發完整的商用管理系統,並將碩士專題延伸為結合感測器、影像辨識、機器人控制與雲端服務的軟硬整合實作。</p>
-        <p>我重視的是能發揮「現場電控」與「系統整合」這兩種能力的機會——無論是需要輪班的廠內設備工程師,或是日班的自動化整合、機電整合職位,只要用得上這兩種能力,我都願意考慮。</p>
-      </div>
-      <aside class="aside">
-        <h4>基本資訊</h4>
-        <dl>
-          <dt>學歷</dt><dd>資訊工程相關碩士</dd>
-          <dt>現職產業</dt><dd>電力機械器材製造修配</dd>
-          <dt>競賽背景</dt><dd>工業配線 選手</dd>
-          <dt>目標方向</dt><dd>自動化 / 機電整合 / 控制</dd>
-          <dt>準備中證照</dt><dd>機電整合 乙級</dd>
-        </dl>
-      </aside>
+  <header class="top">
+    <div class="small mono">PORTFOLIO / README.md</div>
+    <h1><span class="name-slot">聯絡方式應徵時提供</span></h1>
+    <p class="role">軟硬整合工程師 — 工業配線 × PLC × 全端開發</p>
+    <p class="lede">高職工業配線競賽選手,資訊工程類碩士,現職電力機械器材製造修配業,負責照圖配盤與電控元件裝配。工作之外獨立開發過商用系統,並完成碩士論文。這份作品集記錄三個實際案例,附完整技術細節與實測數據,不是行銷頁面。</p>
+    <div class="badges">
+      <span class="badge">工業配線丙級</span>
+      <span class="badge">變壓器裝修乙級</span>
+      <span class="badge">GX Works3</span>
+      <span class="badge">Node.js/React</span>
+      <span class="badge">Python/PHP/MySQL</span>
+      <span class="badge">2,723筆實測數據</span>
     </div>
-  </section>
+  </header>
 
-  <section id="skills">
-    <p class="eyebrow">技能</p>
-    <h2 class="h2">電控現場 × 軟體整合</h2>
-    <p class="sec-intro">兩條技能線各自扎實,交集的地方就是我的優勢。</p>
-    <div class="techgrid">
-      <div class="tcard">
-        <h4>電控 / 現場實務</h4>
-        <div class="stacktags">
-          <span>PLC 階梯圖(三菱 GX Works3)</span>
-          <span>工業配線</span>
-          <span>變壓器裝修</span>
-          <span>配電盤裝配</span>
-          <span>單線圖 / 配電圖判讀</span>
-          <span>AutoCAD</span>
-        </div>
-      </div>
-      <div class="tcard">
-        <h4>軟體 / 系統整合</h4>
-        <div class="stacktags">
-          <span>Node.js</span>
-          <span>React</span>
-          <span>Python</span>
-          <span>PHP / MySQL</span>
-          <span>Linux(SSH 遠端環境)</span>
-          <span>ESP32 / 感測器整合</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <h2><span class="idx">01</span>關於我</h2>
+  <p>高職電機科畢業,學生時期擔任校隊工業配線競賽選手,熟悉三菱 GX Works3 階梯圖程式與現場配線實務;之後完成資訊工程相關碩士學位,主修軟硬體整合。目前任職於電力機械器材製造修配業,負責依電氣圖面進行控制盤配線、電控元件裝配與現場除錯。工作之外,我獨立設計並開發完整的商用管理系統,並將碩士專題延伸為結合感測器、影像辨識、機器人控制與雲端服務的軟硬整合實作。</p>
+  <p>我重視的是能發揮「現場電控」與「系統整合」這兩種能力的機會——無論是需要輪班的廠內設備工程師,或是日班的自動化整合、機電整合職位,只要用得上這兩種能力,我都願意考慮。</p>
+  <table>
+    <tr><th>學歷</th><td>資訊工程相關碩士</td></tr>
+    <tr><th>現職產業</th><td>電力機械器材製造修配(兼職,學徒,2025/9~)</td></tr>
+    <tr><th>競賽背景</th><td>工業配線競賽選手(高職)</td></tr>
+    <tr><th>目標方向</th><td>自動化 / 機電整合 / 控制</td></tr>
+    <tr><th>準備中證照</th><td>機電整合乙級</td></tr>
+  </table>
 
-  <section id="certs">
-    <p class="eyebrow">證照</p>
-    <h2 class="h2">技術能力認證</h2>
-    <div class="certlist">
-      <div class="certitem"><span class="lvl">乙級</span> 變壓器裝修 技術士證</div>
-      <div class="certitem"><span class="lvl">丙級</span> 工業配線 技術士證</div>
-      <div class="certitem"><span class="lvl">丙級</span> 變壓器裝修 技術士證</div>
-      <div class="certitem"><span class="lvl">專業級</span> PCB 電路板設計 國際能力認證</div>
-      <div class="certitem"><span class="lvl">TQC+</span> 基礎程式語言 Python 3</div>
-      <div class="certitem"><span class="lvl">TQC</span> Excel 2019</div>
-      <div class="certitem"><span class="lvl">TQC</span> Word 2019</div>
-    </div>
-  </section>
+  <h2><span class="idx">02</span>技能</h2>
+  <table>
+    <tr><th>電控 / 現場實務</th><td>PLC 階梯圖(三菱 GX Works3)、工業配線、變壓器裝修、配電盤裝配、單線圖／配電圖判讀、AutoCAD</td></tr>
+    <tr><th>軟體 / 系統整合</th><td>Node.js、React、Python、PHP／MySQL、Linux(SSH 遠端環境)、ESP32／感測器整合</td></tr>
+  </table>
 
-  <section id="works">
-    <p class="eyebrow">作品</p>
-    <h2 class="h2">代表作品</h2>
-    <p class="sec-intro">一套是已交付商用、即將於實體門市試營運的完整產品;一份是求學階段獨立完成的軟硬整合研究專題;另一項則是現職上獨立完成過最複雜的配電盤案例。</p>
-    <div class="works">
+  <h2><span class="idx">03</span>證照</h2>
+  <table>
+    <tr><th>乙級</th><td>變壓器裝修 技術士證</td></tr>
+    <tr><th>丙級</th><td>工業配線 技術士證</td></tr>
+    <tr><th>丙級</th><td>變壓器裝修 技術士證</td></tr>
+    <tr><th>實用級／專業級</th><td>PCB 電路板設計 國際能力認證(TEMI)</td></tr>
+    <tr><th>TQC+</th><td>基礎程式語言 Python 3</td></tr>
+    <tr><th>TQC</th><td>Excel 2019 ／ Word 2019</td></tr>
+  </table>
 
-      <a class="workcard" href="_素材與工具/髮藝POS-作品集.html">
-        <div class="wc-body">
-          <span class="wc-tag">商用產品 · 2026/08 試營運</span>
-          <h3>髮藝沙龍 POS 管理系統</h3>
-          <p>獨立設計並開發的美髮門市管理系統,涵蓋顧客資料、業績抽成、庫存、營業額統計,並依「老闆／設計師」分層設計權限畫面,含老闆手機遠端看店功能。</p>
-          <ul>
-            <li>授權金鑰機制,防止未授權複製</li>
-            <li>開機自我修復與多重自動備份</li>
-            <li>老闆手機遠端查看店內營運狀況</li>
-          </ul>
-          <span class="wc-cta">查看完整作品頁 →</span>
-        </div>
-        <div class="wc-shot"><img src="_素材與工具/web/00-login.jpg" alt="髮藝POS登入畫面"></div>
-      </a>
+  <h2><span class="idx">04</span>作品</h2>
+  <p class="small">三個實際案例:一套已交付商用的門市管理系統、一份軟硬整合碩士研究、一項現職上獨立完成過最複雜的配電盤案例。</p>
+  <div class="worklist">
 
-      <a class="workcard" href="_素材與工具/圖書上架系統-作品集.html">
-        <div class="wc-body">
-          <span class="wc-tag">碩士專題研究</span>
-          <h3>智慧型影像辨識圖書上架系統</h3>
-          <p>不需為書籍加裝任何標籤,結合 Logitech 攝影機 OCR 影像辨識與 Levenshtein 模糊比對、ESP32 紅外線格位感測、LEGO EV3Dev 機器人取放控制、LINE Bot 查詢介面與雲端資料庫的軟硬整合研究專題,累積 2,723 筆實驗數據驗證。</p>
-          <ul>
-            <li>OpenCV 前處理(CLAHE、去歪斜校正)+ Tesseract OCR + 模糊比對</li>
-            <li>EV3Dev 機器人自動取放、LINE Bot 五指令查詢</li>
-            <li>單一資料表旗標接力,四端鬆耦合即時同步</li>
-          </ul>
-          <span class="wc-cta">查看完整作品頁 →</span>
-        </div>
-        <div class="wc-shot"><img src="assets/thesis-hero-graphic.png" alt="智慧型影像辨識圖書上架系統示意圖"></div>
-      </a>
+    <a class="workitem" href="_素材與工具/髮藝POS-作品集.html">
+      <span class="tag">商用產品 · 2026/08 試營運</span>
+      <h3>髮藝沙龍 POS 管理系統</h3>
+      <p>獨立設計並開發的美髮門市管理系統,涵蓋顧客資料、業績抽成、庫存、營業額統計,依「老闆／設計師」分層設計權限畫面,含老闆手機遠端看店功能。技術:<code class="stat">Node.js</code> <code class="stat">React</code> <code class="stat">SQLite</code> <code class="stat">Ed25519 簽章授權</code></p>
+      <ul class="plain">
+        <li>授權金鑰機制,防止未授權複製</li>
+        <li>開機自我修復與多重自動備份</li>
+        <li>老闆手機遠端查看店內營運狀況(Tailscale)</li>
+      </ul>
+      <img class="thumb" src="_素材與工具/web/00-login.jpg" alt="髮藝POS登入畫面">
+    </a>
 
-      <a class="workcard" href="_素材與工具/交替水位控制盤-作品集.html">
-        <div class="wc-body">
-          <span class="wc-tag">現職代表案例</span>
-          <h3>交替水位控制盤</h3>
-          <p>公司承接的水位交替啟動控制盤專案,兩面盤(A盤／B盤)、四顆軟啟動器控制四顆抽水馬達,依電氣單線圖與控制圖完成元器件佈置與配線施工,是我目前獨立完成過最複雜的配電盤案例。</p>
-          <ul>
-            <li>OMRON 61F-G4 水位偵測 + 61F-11 繼電器</li>
-            <li>SMC 軟啟動器 ×4,控制四顆抽水馬達</li>
-            <li>單線圖／控制圖判讀 + 控制迴路配線 + 送電前測試</li>
-          </ul>
-          <span class="wc-cta">查看完整作品頁 →</span>
-        </div>
-        <div class="wc-shot"><img src="assets/panel-overview2.jpg" alt="交替水位控制盤實拍"></div>
-      </a>
+    <a class="workitem" href="_素材與工具/圖書上架系統-作品集.html">
+      <span class="tag">碩士論文</span>
+      <h3>智慧型影像辨識圖書上架系統</h3>
+      <p>不需為書籍加裝任何標籤,結合 Logitech 攝影機 OCR 影像辨識與 Levenshtein 模糊比對、ESP32 紅外線格位感測、LEGO EV3Dev 機器人取放控制、LINE Bot 查詢介面與雲端資料庫,累積 <code class="stat">2,723</code> 筆實驗數據驗證(29種測試條件)。</p>
+      <ul class="plain">
+        <li>OpenCV 前處理(CLAHE、去歪斜校正)+ Tesseract OCR + 模糊比對</li>
+        <li>EV3Dev 機器人自動取放、LINE Bot 五指令查詢</li>
+        <li>單一資料表旗標接力,四端鬆耦合即時同步,存取 <code class="stat">&lt;200ms</code></li>
+      </ul>
+      <img class="thumb" src="assets/thesis-hero-graphic.png" alt="智慧型影像辨識圖書上架系統示意圖">
+    </a>
 
-    </div>
-  </section>
+    <a class="workitem" href="_素材與工具/交替水位控制盤-作品集.html">
+      <span class="tag">現職代表案例</span>
+      <h3>交替水位控制盤</h3>
+      <p>公司承接的水位交替啟動控制盤專案,兩面盤(A盤／B盤)、<code class="stat">12</code> 顆繼電器(OMRON 61F系列)、<code class="stat">4</code> 顆 SMC 軟啟動器控制四顆抽水馬達,依電氣單線圖與控制圖完成元器件佈置與配線施工,是我目前獨立完成過邏輯複雜度最高的配電盤案例。</p>
+      <ul class="plain">
+        <li>OMRON 61F-G4 水位偵測 + 61F-11 繼電器</li>
+        <li>SMC 軟啟動器 ×4,控制四顆抽水馬達</li>
+        <li>單線圖／控制圖判讀 + 控制迴路配線 + 送電前測試</li>
+      </ul>
+      <img class="thumb" src="assets/panel-overview2.jpg" alt="交替水位控制盤實拍">
+    </a>
+
+  </div>
 
   <footer>
     作品集 · <span class="name-slot">聯絡方式應徵時提供</span>
