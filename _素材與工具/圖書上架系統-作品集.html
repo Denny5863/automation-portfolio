@@ -6,392 +6,221 @@
 <title>智慧型影像辨識圖書上架系統 · 專案作品集</title>
 <style>
 :root{
-  --paper:#F7F5EF; --card:#FFFFFF; --ink:#181510; --soft:#4C463B; --line:#DAD3C4;
-  --green:#234634; --green-lt:#E4ECE5; --gold:#87610F; --gold-lt:#F3E8CF;
-  --dark:#120F08;
+  --bg:#ffffff; --text:#1a1a1a; --soft:#57606a; --border:#d0d7de;
+  --code-bg:#f6f8fa; --link:#0969da;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
-  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
-.mono{font-family:"Cascadia Code",Consolas,monospace}
-a.back{display:inline-block;margin:22px 26px 0;color:var(--soft);font-size:13.5px;text-decoration:none}
-a.back:hover{color:var(--green)}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,"Segoe UI",Roboto,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:15.5px;line-height:1.65}
+.mono{font-family:"Cascadia Code",Consolas,"SFMono-Regular",monospace}
+.wrap{max-width:860px;margin:0 auto;padding:16px 24px 80px}
+a{color:var(--link)}
+a.back{display:inline-block;margin:0 0 20px;color:var(--soft);font-size:13.5px;text-decoration:none}
+a.back:hover{color:var(--link)}
 
-.hero{background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(176,129,47,.16), transparent 60%),
-    linear-gradient(150deg,#191710 0%,#20211b 55%,#14140f 100%);
-  color:#F3EEE2;padding:40px 0 66px;position:relative;overflow:hidden}
-.hero .wrap{position:relative}
-.hero .kick{letter-spacing:.42em;font-size:12.5px;color:#E0BE7C;font-weight:700;margin:0 0 18px}
-.hero h1{font-size:clamp(28px,4.6vw,46px);line-height:1.2;margin:0 0 18px;font-weight:800;letter-spacing:.01em;color:#FBF7EE}
-.hero h1 b{color:#EBC989;font-weight:800}
-.hero .lede{font-size:clamp(15px,2.1vw,18.5px);color:#E7E1D3;max-width:40em;margin:0 0 30px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px}
-.chip{border:1px solid rgba(226,204,157,.45);color:#F0E7D2;border-radius:999px;
-  padding:7px 15px;font-size:13.5px;background:rgba(255,255,255,.06)}
+header.top{border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:28px}
+header.top .small{color:var(--soft);font-size:13px}
+header.top h1{font-size:23px;margin:6px 0 8px;font-weight:700}
+header.top .role{color:var(--soft);font-size:15px;margin:0 0 14px}
+header.top .lede{margin:0 0 14px;max-width:70ch}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-family:"Cascadia Code",Consolas,monospace;font-size:12px;border:1px solid var(--border);
+  border-radius:4px;padding:2px 8px;color:var(--soft);background:var(--code-bg)}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-  border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:-38px 0 0;
-  position:relative;z-index:2;box-shadow:0 22px 50px -30px rgba(30,25,15,.5)}
-.stat{background:var(--card);padding:22px 20px;text-align:center}
-.stat b{display:block;font-size:clamp(20px,3.2vw,28px);color:var(--green);font-weight:800;line-height:1.15;font-family:"Cascadia Code",Consolas,monospace}
-.stat span{display:block;font-size:12.5px;color:var(--soft);margin-top:6px}
+h2{font-size:18px;margin:34px 0 4px;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:8px}
+h2 .idx{color:var(--soft);font-weight:400;margin-right:6px}
+h3{font-size:16px;margin:20px 0 6px;font-weight:700}
+p{margin:10px 0}
+.small{color:var(--soft);font-size:13.5px}
 
-section{padding:58px 0 8px}
-.eyebrow{font-size:12.5px;letter-spacing:.24em;color:var(--gold);font-weight:800;text-transform:uppercase;margin:0 0 10px}
-.h2{font-size:clamp(23px,3.4vw,30px);font-weight:800;margin:0 0 12px;letter-spacing:.01em}
-.sec-intro{color:var(--soft);max-width:44em;margin:0 0 30px;font-size:15.5px}
+table{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:14.5px}
+table th,table td{text-align:left;padding:6px 10px;border:1px solid var(--border);vertical-align:top}
+table th{background:var(--code-bg);font-weight:600}
+table.kv th{width:22%}
+table.spec th{width:26%}
 
-.about{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
-.about .lead{font-size:17px;line-height:1.85}
-.about .lead p{margin:0 0 16px}
-.aside{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
-.aside h4{margin:0 0 14px;font-size:14px;letter-spacing:.05em;color:var(--gold)}
-.aside dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:9px 14px;font-size:14.5px}
-.aside dt{color:var(--soft)}
-.aside dd{margin:0;font-weight:600;text-align:right}
+ul.plain{margin:8px 0;padding-left:20px}
+ul.plain li{margin:4px 0}
 
-.feats{display:flex;flex-direction:column;gap:30px}
-.feat{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;
-  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4)}
-.feat:nth-child(even){grid-template-columns:.85fr 1.15fr}
-.feat:nth-child(even) .feat-body{order:-1}
-.feat-shot{margin:0;background:var(--dark);height:100%;display:flex;align-items:center;padding:20px}
-.feat-shot img{width:100%;border-radius:9px;display:block;box-shadow:0 12px 30px -14px rgba(0,0,0,.6)}
-.feat-body{padding:26px 30px}
-.feat-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--green);
-  background:var(--green-lt);border-radius:6px;padding:4px 10px;margin-bottom:10px}
-.feat-body h3{margin:0 0 8px;font-size:21px;font-weight:800}
-.feat-body p{margin:0 0 12px;color:var(--soft);font-size:15px}
-.feat-body ul{margin:0;padding-left:18px}
-.feat-body li{margin:5px 0;font-size:14.5px}
+.imgblock{margin:14px 0}
+.imgblock img{width:100%;max-height:360px;object-fit:cover;border:1px solid var(--border);border-radius:4px;display:block}
+.imgblock.contain img{object-fit:contain;background:#fff;max-height:none}
+.imgblock figcaption{color:var(--soft);font-size:13px;margin-top:4px}
 
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-.gal figure{margin:0;background:var(--dark);border:1px solid var(--line);border-radius:12px;overflow:hidden;
-  box-shadow:0 10px 26px -20px rgba(30,25,15,.5)}
-.gal img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:top center;
-  border-bottom:1px solid rgba(255,255,255,.05)}
-.gal figcaption{color:#ECE4D2;font-size:13px;line-height:1.5;padding:11px 14px;background:#1a1710}
-.gal-2col{grid-template-columns:repeat(2,1fr)}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0}
+.gal figure{margin:0}
+.gal img{width:100%;height:180px;object-fit:cover;border:1px solid var(--border);border-radius:4px;display:block}
+.gal.charts img{height:auto;object-fit:contain;background:#fff}
+.gal figcaption{color:var(--soft);font-size:12.5px;margin-top:4px}
 
-.techgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;
-  box-shadow:0 2px 4px rgba(30,25,15,.03),0 14px 34px -28px rgba(30,25,15,.4)}
-.tcard h4{margin:0 0 7px;font-size:16.5px;font-weight:800}
-.tcard p{margin:0;color:var(--soft);font-size:14px;line-height:1.65}
-.stacktags{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px}
-.stacktags span{border:1px solid var(--line);background:var(--card);border-radius:8px;
-  padding:7px 13px;font-size:13.5px;font-weight:600;font-family:"Cascadia Code",Consolas,monospace}
+video{width:100%;border:1px solid var(--border);border-radius:4px;display:block;margin:10px 0}
 
-.cmp{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--card);
-  box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4)}
-.cmp table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:620px}
-.cmp th,.cmp td{padding:15px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-.cmp thead th{background:var(--paper);font-size:12.5px;letter-spacing:.05em;color:var(--soft);font-weight:800;text-transform:uppercase}
-.cmp td:first-child{color:var(--ink);font-weight:700;width:22%}
-.cmp td:last-child{color:var(--soft)}
-.cmp tbody tr:last-child td{border-bottom:none}
+.note{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:14px 18px;color:var(--text);font-size:14.5px;margin:14px 0}
 
-.note{background:var(--green-lt);border:1px solid var(--line);border-radius:16px;padding:22px 26px;color:var(--soft);font-size:14.5px}
-.note b{color:var(--ink)}
+footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color:var(--soft);font-size:13px}
+.name-slot{display:inline-block;border-bottom:1px dashed #999;color:#888;padding:0 10px}
 
-footer{margin-top:60px;border-top:1px solid var(--line);padding:26px 0 60px;color:var(--soft);font-size:13px;text-align:center}
-.name-slot{display:inline-block;border-bottom:1.5px dashed #C7BEAE;color:#B9AE99;padding:0 26px;margin:0 4px}
-
-@media (max-width:820px){
-  .stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}
-  .about{grid-template-columns:1fr}
-  .feat,.feat:nth-child(even){grid-template-columns:1fr}
-  .feat:nth-child(even) .feat-body{order:0}
-  .techgrid{grid-template-columns:1fr}
-  .gal{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:560px){
-  .gal-2col{grid-template-columns:1fr}
+@media (max-width:600px){
+  .gal{grid-template-columns:1fr}
 }
 @media print{
-  body{font-size:11pt}
-  .hero{background:#1b1912 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  section{padding:22px 0 4px;break-inside:avoid}
-  .feat,.tcard,.cmp,figure{break-inside:avoid}
   a.back{display:none}
   #demo{display:none}
-  .cmp table{font-size:11px}
 }
 </style>
 </head>
 <body>
+<div class="wrap">
 
 <a class="back" href="../index.html">← 返回作品集</a>
 
-<header class="hero">
-  <div class="wrap">
-    <p class="kick">碩士專題 · SYSTEM DESIGN</p>
-    <h1>智慧型影像辨識<br><b>圖書自動上架系統</b>研究與實現</h1>
-    <p class="lede">結合嵌入式感測、OCR影像辨識、機器人取放與雲端服務的軟硬整合研究——不需為書籍加裝任何標籤,直接讓系統「看懂」書名,自動辨識、定位並送回正確書架位置,同時提供即時查詢介面。</p>
-    <div class="hero-meta">
-      <span class="chip">Logitech C270 + OCR</span>
-      <span class="chip">ESP32 + 紅外線感測</span>
-      <span class="chip">CLAHE + 去歪斜校正</span>
-      <span class="chip">OCR 影像辨識 + 模糊比對</span>
-      <span class="chip">LEGO EV3 機器人</span>
-      <span class="chip">LINE Bot</span>
-      <span class="chip">雲端資料庫</span>
-    </div>
+<header class="top">
+  <div class="small mono">WORK / 碩士論文</div>
+  <h1>智慧型影像辨識圖書上架系統</h1>
+  <p class="role">研究與實現</p>
+  <p class="lede">圖書歸還後不用人工判讀書名、找位置再上架,這套系統靠攝影機直接辨識書背文字,配合機器人自動送回書架,不用貼任何條碼或標籤。跑了 2,723 筆實驗數據驗證辨識穩定度,發表過一場學術研討會海報論文。</p>
+  <div class="badges">
+    <span class="badge">Logitech C270 + OCR</span>
+    <span class="badge">ESP32 紅外線感測</span>
+    <span class="badge">EV3Dev 機器人</span>
+    <span class="badge">LINE Bot</span>
+    <span class="badge">PHP + MySQL</span>
+    <span class="badge">2,723筆實測數據</span>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><b>5</b><span>子系統整合(感測/辨識/機器人/通訊/雲端)</span></div>
-    <div class="stat"><b>2,723</b><span>筆辨識實驗資料(29種測試條件)</span></div>
-    <div class="stat"><b>1</b><span>場全國性學術研討會海報發表</span></div>
-    <div class="stat"><b>LINE Bot</b><span>即時查詢使用者介面</span></div>
-  </div>
+<h2><span class="idx">01</span>研究動機</h2>
+<p>圖書歸還後,館員要人工判讀書名、查位置再上架,流程繁瑣又容易出錯。這個研究做一套低成本的軟硬整合系統,把「辨識書籍」到「送回書架」自動化。</p>
+<p>系統分兩條硬體路徑:還書端由主機(Windows 11 + Python)接 Logitech C270 攝影機,每約 1.5 秒擷取一次畫面,經 OpenCV 前處理跟 Tesseract OCR 辨識書背文字,再用 Levenshtein 距離模糊比對找最接近的書名;另一端由 ESP32 + 9 顆紅外線感測器監控 3×3 書架格位狀態。兩端不直接溝通,都透過雲端資料庫的旗標欄位同步。全程不用為書籍加裝條碼或 RFID 標籤。</p>
+<p>確認書籍身分後,LEGO EV3Dev 機器人載具負責取件、移動、對接書架、送入;雲端資料庫(PHP+MySQL)即時更新館藏狀態,使用者用 LINE Bot 查詢書籍位置跟狀態。</p>
+<table class="kv">
+  <tr><th>類型</th><td>碩士論文</td></tr>
+  <tr><th>角色</th><td>獨立設計與實作</td></tr>
+  <tr><th>硬體</th><td>Logitech C270 / ESP32 / EV3Dev / 自製 PCB</td></tr>
+  <tr><th>軟體</th><td>Python(OpenCV/OCR)、Django、PHP</td></tr>
+  <tr><th>發表</th><td>全國性學術研討會 海報論文</td></tr>
+</table>
+
+<figure class="imgblock contain" style="border:1px solid var(--border);border-radius:4px;padding:10px">
+  <img src="../assets/thesis-hero-graphic.png" alt="系統概念示意圖">
+</figure>
+
+<h2><span class="idx">02</span>系統設計</h2>
+
+<h3>感測與辨識層 — 不貼標籤,直接看書名</h3>
+<p>用 Logitech C270 USB 攝影機直接辨識書名本身,不靠 ESP32 觸發。前處理流程:灰階(Y=0.299R+0.587G+0.114B)→ 雙三次插值放大 1.5× → CLAHE 8×8 區塊局部對比強化(clipLimit=2.0)→ Otsu 二值化抓書卡輪廓做去歪斜校正,再交給 Tesseract OCR 辨識,最後用 Levenshtein 編輯距離正規化相似度(門檻 0.60)做模糊比對,容忍 OCR 誤判 1~2 字。</p>
+<ul class="plain">
+  <li>去歪斜實測:23° 傾斜未校正僅 3.3% 辨識率,校正後回升至 95%</li>
+  <li>2,723 筆辨識資料、29 種測試條件,全程寫入 OCR_LOG 可追溯</li>
+  <li>刻意不採 Otsu 二值化做前處理(原因見下方「設計取捨」)</li>
+</ul>
+<figure class="imgblock"><img src="../assets/thesis-ocr-shot.png" alt="OCR即時辨識書背文字畫面"></figure>
+
+<h3>機器人取放層 — 樂高刷成連網 Linux 機器人</h3>
+<p>把 LEGO EV3 刷成 EV3Dev(Linux),用 Python 寫控制邏輯,直接連線查雲端資料庫。四顆馬達分工:X 軸水平移動、Y 軸升降、對接馬達推出/收回、滾輪馬達撥書入架。定位不用編碼器,在地面/書架貼色塊,用顏色感測器邊走邊數格數。</p>
+<ul class="plain">
+  <li>色塊計數定位,X/Y 軸共用同一套邏輯</li>
+  <li>對接後用紅/綠色塊二次確認對準,反射光感測器確認書已送入書架</li>
+  <li>輪詢資料庫 status 欄位,變成 on 才算歸位完成</li>
+</ul>
+<figure class="imgblock"><img src="../assets/thesis-ev3-photo.jpg" alt="LEGO EV3機器人載具實體組裝"></figure>
+
+<h3>使用者互動層 — LINE 查書、取書</h3>
+<p>後端 Django + Ngrok 建 HTTPS 通道,前端用 LINE Messaging API 的 Carousel 選單,讀者不用裝額外的 App。指令不只查詢,還有借閱、排行、AI 客服。</p>
+<ul class="plain">
+  <li>「找-書名」→ 模糊比對選單 → 回覆書架位置</li>
+  <li>「拿-書名」→ 比對+二次確認 → 觸發載具取書</li>
+  <li>「查詢館藏」回報在架總數;「作者-名」列出該作者館藏(每10本分頁)</li>
+  <li>「熱門書籍排行」讀借閱排行表;「問-」接 AI 客服問答</li>
+</ul>
+<figure class="imgblock"><img src="../assets/thesis-linebot-shot.png" alt="LINE Bot實際查詢對話畫面"></figure>
+
+<h3>硬體與資料層 — 單一資料表 + 旗標接力</h3>
+<p>感測電路用 Altium Designer 設計並手工雕刻 PCB,搭配 3D 列印外殼整合模組。核心設計是用一張 DATA 表當唯一資料來源(書名、座標、status、wait/take/put 等旗標欄位),影像辨識、EV3、ESP32、LINE Bot 四端不直接溝通,全部透過 PHP API 讀寫同一張表的旗標接力——任一端故障不會卡死其他端。另設 OCR_LOG 實驗記錄表跟 BORROW_RANK 借閱排行表。</p>
+<ul class="plain">
+  <li>旗標接力:辨識設 wait='ok' → EV3 收到出發 → 紅外線改 status='on' → LINE 查 status 回報位置</li>
+  <li>四端資料庫存取 &lt;200ms,LINE 回應約 0.5~1 秒</li>
+  <li>PHP + MySQL 雲端資料庫,部署門檻低、跨平台可串接</li>
+</ul>
+<figure class="imgblock"><img src="../assets/thesis-pcb-photo.jpg" alt="手工PCB雕刻實作成品"></figure>
+
+<h2><span class="idx">03</span>研究成果</h2>
+<p class="small">全程自動記錄至 OCR_LOG,累計 2,723 筆辨識資料,涵蓋 29 種測試條件。以下是六項關鍵變因的實測結果。</p>
+<div class="gal charts">
+  <figure><img src="../assets/thesis-chart-color.png" alt="卡片底色配色對辨識正確率之影響"><figcaption>底色配色:黃底黑字 100%,隨機多色底驟降至 10.4%</figcaption></figure>
+  <figure><img src="../assets/thesis-chart-font.png" alt="字型對辨識正確率之影響"><figcaption>字型:標準印刷字型皆 ≥95%,手寫體(Ink Free)僅 46.5%</figcaption></figure>
+  <figure><img src="../assets/thesis-chart-deskew.png" alt="去歪斜前處理對傾斜文字之改善"><figcaption>去歪斜校正:23° 傾斜未校正僅 3.3%,校正後回升至 95%</figcaption></figure>
+  <figure><img src="../assets/thesis-chart-light.png" alt="光線衰減對辨識正確率之影響"><figcaption>光線衰減:1~3 層濾光仍達 100%,5 層過暗驟降至 19.6%</figcaption></figure>
+  <figure><img src="../assets/thesis-chart-similar.png" alt="相似書名之辨識正確率"><figcaption>相似書名辨識率 68.8~87.9%(MATA/META/MEAM/MAMA/NEAM)</figcaption></figure>
+  <figure><img src="../assets/thesis-chart-confusion.png" alt="相似書名混淆矩陣"><figcaption>混淆矩陣近對角,2,723 筆中僅 1 次跨書名誤判(MEAM→NEAM)</figcaption></figure>
+</div>
+<p>這是加 Levenshtein 模糊比對的原因——OCR 辨識不完整或有錯字時,還是能對照資料庫校正回最接近的書名。模糊比對門檻(0.60)也是從這批實測數據調出來的,不是憑感覺訂的。</p>
+
+<h2><span class="idx">04</span>設計取捨與研究限制</h2>
+<p class="small">做過的判斷不只是「做出來會動」,也包含「測過為什麼不這樣做」。以下是實測後的取捨,跟系統目前的限制。</p>
+<table class="spec">
+  <tr><th>為何不用 Otsu 二值化</th><td>實測發現深色背景會被整片轉黑、書名筆畫被吃掉(Words=0、平均信心度 0%),自動 ROI 裁切也常誤切到書名。最終前處理只留「放大+灰階+CLAHE(+去歪斜)」,不做二值化與 ROI。</td></tr>
+  <tr><th>為何選 Tesseract,不用雲端 OCR</th><td>PaddleOCR/Google Vision 辨識率更高,但一個吃硬體資源、一個要連網收費。書名多半是單一整塊文字,Tesseract 離線免費、可調 <span class="mono">--psm 6</span> 剛好符合需求。</td></tr>
+  <tr><th>雲端資料庫的已知限制</th><td>PHP API 用 HTTP GET 帶 SQL 呼叫,目前只靠金鑰驗證,沒有注入防護;單表設計大規模擴充有限;依賴網路連線品質。</td></tr>
+  <tr><th>LINE Bot 通道的限制</th><td>Ngrok 建的 HTTPS 通道只適合開發階段(網址會變),正式上線要換固定網址的雲端主機;查詢功能依賴外部 LINE API 可用性。</td></tr>
+  <tr><th>EV3 硬體的限制</th><td>樂高教育套件承重有限,只適合輕量示範,沒辦法載真實圖書館等級的書籍重量跟運送距離。</td></tr>
+  <tr><th>模糊比對門檻是經驗值</th><td>0.60 是實測調參的結果,兼顧準確跟容錯,但換一批書名分佈可能要重新校準,不是固定不變的數字。</td></tr>
+</table>
+
+<h2><span class="idx">05</span>功能模組</h2>
+<table class="spec">
+  <tr><th>OCR 定時擷取</th><td>Logitech C270 每約 1.5 秒擷取一次畫面,持續監看還書狀況</td></tr>
+  <tr><th>紅外線格位感測</th><td>ESP32 + 9 顆紅外線,監控 3×3 書架格位狀態,與攝影機是獨立路徑</td></tr>
+  <tr><th>OCR 前處理</th><td>OpenCV 影像前處理,提升文字辨識清晰度</td></tr>
+  <tr><th>模糊比對校正</th><td>Levenshtein 距離對照資料庫,修正 OCR 辨識誤差</td></tr>
+  <tr><th>去歪斜校正</th><td>Otsu 二值化+minAreaRect 抓書卡輪廓,校正傾斜書名</td></tr>
+  <tr><th>EV3 移動控制</th><td>EV3Dev 控制載具移動、定位</td></tr>
+  <tr><th>EV3 取放對接</th><td>機構升降、對接書架,完成實體取放動作</td></tr>
+  <tr><th>雲端即時同步</th><td>PHP + MySQL,館藏狀態即時更新供各端查詢</td></tr>
+  <tr><th>LINE Bot 五指令</th><td>找書、拿書、查詢館藏、查作者、借閱排行</td></tr>
+  <tr><th>PCB 電路設計</th><td>Altium Designer 設計並手工雕刻感測電路板</td></tr>
+  <tr><th>3D 列印外殼</th><td>客製化書籍外殼,輔助感測定位與保護硬體</td></tr>
+  <tr><th>學術發表</th><td>研究成果以海報論文形式於全國性學術研討會發表</td></tr>
+  <tr><th>跨平台整合</th><td>Python / PHP / C++ 跨語言,嵌入式到雲端跨平台串接</td></tr>
+</table>
+
+<h2><span class="idx">06</span>現場照片</h2>
+<div class="gal">
+  <figure><img src="../assets/thesis-esp32-photo.jpg" alt="ESP32與紅外線感測器組裝"><figcaption>ESP32 + 紅外線感測模組實體組裝</figcaption></figure>
+  <figure><img src="../assets/thesis-3dprint.png" alt="3D列印書籍外殼設計"><figcaption>3D 列印書籍外殼設計圖</figcaption></figure>
+  <figure><img src="../assets/thesis-pcb-photo2.jpg" alt="PCB雕刻成品另一角度"><figcaption>手工 PCB 雕刻電路板</figcaption></figure>
 </div>
 
-<div class="wrap">
-  <section style="padding-top:44px">
-    <div style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
-      box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4)">
-      <img src="../assets/thesis-hero-graphic.png" alt="系統概念示意圖" style="width:100%;display:block">
-    </div>
-  </section>
+<h2 id="demo"><span class="idx">07</span>展示影片</h2>
+<video src="../assets/videos/thesis-demo-web.mp4" controls></video>
 
-  <section id="about">
-    <p class="eyebrow">研究動機</p>
-    <h2 class="h2">圖書館歸還上架,一直是人力密集的環節</h2>
-    <div class="about">
-      <div class="lead">
-        <p>圖書歸還後,館員需要人工判讀書名、查找正確位置再重新上架,流程繁瑣且容易出錯。這個研究嘗試用一套低成本的軟硬整合系統,把「辨識書籍」到「送回書架」的流程自動化。</p>
-        <p>系統以兩條獨立的硬體路徑運作:還書端由主機(Windows 11 + Python)透過 USB 連接 <b>Logitech C270 攝影機</b>,每約 1.5 秒擷取一次畫面,經 OpenCV 前處理與 Tesseract OCR 辨識書背文字,再用 Levenshtein 距離模糊比對找出最接近的正確書名;另一端則由 <b>ESP32 + 9 顆紅外線感測器</b>監控 3×3 書架格位狀態,兩端互不直接溝通,全部透過雲端資料庫的旗標欄位同步——全程不需要為書籍加裝條碼或 RFID 標籤。</p>
-        <p>確認書籍身分後,由 LEGO EV3Dev 機器人載具執行取件、移動、對接書架、送入等實體動作;雲端資料庫(PHP+MySQL)即時更新館藏狀態,使用者則可透過 LINE Bot 查詢書籍目前位置與狀態。</p>
-      </div>
-      <aside class="aside">
-        <h4>專題資訊</h4>
-        <dl>
-          <dt>類型</dt><dd>碩士論文</dd>
-          <dt>角色</dt><dd>獨立設計與實作</dd>
-          <dt>硬體</dt><dd>Logitech C270 / ESP32 / EV3Dev / 自製PCB</dd>
-          <dt>軟體</dt><dd>Python(OpenCV/OCR)、Django、PHP</dd>
-          <dt>發表</dt><dd>全國性學術研討會 海報論文</dd>
-        </dl>
-      </aside>
-    </div>
-  </section>
+<h2><span class="idx">08</span>技術棧</h2>
+<table class="spec">
+  <tr><th>嵌入式 / 硬體</th><td>Logitech C270、ESP32、紅外線感測器、EV3Dev(Linux)、Altium Designer、3D 列印</td></tr>
+  <tr><th>影像與演算法</th><td>OpenCV、Tesseract OCR、Levenshtein 距離模糊比對、Python</td></tr>
+  <tr><th>機器人控制</th><td>LEGO EV3Dev、Python 動作控制、感測定位</td></tr>
+  <tr><th>後端與資料庫</th><td>Django、PHP、MySQL</td></tr>
+  <tr><th>使用者介面</th><td>LINE Messaging API、Carousel Template</td></tr>
+</table>
+<p class="small mono">ESP32 · C/C++ · Python · OpenCV · Tesseract OCR · CLAHE · EV3Dev · Django · PHP · MySQL · LINE Messaging API · Altium Designer</p>
 
-  <section id="features">
-    <p class="eyebrow">系統設計</p>
-    <h2 class="h2">四個功能層,各自解決一個問題</h2>
-    <div class="feats">
+<h2><span class="idx">09</span>未來方向</h2>
+<table class="spec">
+  <tr><th>深度學習 OCR</th><td>導入 CRNN / TrOCR / PaddleOCR,取代傳統 OCR 提升複雜書封辨識率</td></tr>
+  <tr><th>RFID + 影像雙重識別</th><td>結合 RFID 與影像辨識雙重確認身分,降低誤判機率</td></tr>
+  <tr><th>多書架 / 多載具</th><td>擴充為分散式系統,支援多書架區域與多台載具協同運作</td></tr>
+  <tr><th>借還大數據分析</th><td>累積借閱紀錄做趨勢分析,支援選書、汰換決策</td></tr>
+  <tr><th>LINE Bot + LLM</th><td>導入大型語言模型,提供選書推薦與自然語言問答</td></tr>
+</table>
 
-      <div class="feat">
-        <div class="feat-body">
-          <span class="feat-tag">感測與辨識層</span>
-          <h3>不貼標籤,直接「看」書名</h3>
-          <p>捨棄條碼/RFID 需逐本貼標、標籤易褪色毀損的做法,改用 <b>Logitech C270 USB 攝影機</b>直接辨識書名本身,不需依賴 ESP32 觸發。影像前處理管線:<b>灰階(Y=0.299R+0.587G+0.114B)→雙三次插值放大 1.5×→CLAHE 8×8 區塊局部對比強化(clipLimit=2.0)→Otsu 二值化抓書卡輪廓做去歪斜校正</b>,再交由 Tesseract OCR 辨識文字,最後以 <b>Levenshtein 編輯距離</b>正規化相似度(門檻 0.60)做模糊比對,容忍 OCR 誤判 1~2 字。</p>
-          <ul>
-            <li>去歪斜實測:23° 傾斜未校正僅 3.3% 辨識率,校正後回升至 95%</li>
-            <li>2723 筆辨識資料、涵蓋 29 種測試條件,全程寫入 OCR_LOG 可追溯</li>
-            <li>刻意不採 Otsu 二值化做前處理(見下方設計取捨)</li>
-          </ul>
-        </div>
-        <figure class="feat-shot"><img src="../assets/thesis-ocr-shot.png" alt="OCR即時辨識書背文字畫面"></figure>
-      </div>
+<div class="note">
+這套系統是求學階段獨立完成的碩士論文,核心是把嵌入式感測、影像辨識、機器人控制、雲端服務、通訊軟體這幾個不相關的技術整合成一套會動的系統。用實測數據找系統的真實邊界、老實列出限制,也是寫這篇論文練出來的習慣。
+</div>
 
-      <div class="feat">
-        <div class="feat-body">
-          <span class="feat-tag">機器人取放層</span>
-          <h3>樂高教育套件,刷成能連網的 Linux 機器人</h3>
-          <p>將 LEGO EV3 刷成 <b>EV3Dev(Linux 系統)</b>,改用 Python 撰寫控制邏輯並直接連線查詢雲端資料庫。四顆馬達分工:X 軸水平移動、Y 軸升降、對接馬達推出/收回、滾輪馬達撥書入架。定位不靠昂貴的編碼器或室內定位系統,而是在地面/書架貼色塊,用顏色感測器邊走邊數色塊格數——免編碼器、簡單可靠、成本低。</p>
-          <ul>
-            <li>色塊計數定位,X/Y 軸共用同一套計數邏輯</li>
-            <li>對接後以紅/綠色塊二次確認對準,反射光感測器確認書已送入書架</li>
-            <li>輪詢資料庫 status 欄位,確認變更為 on 才算歸位完成</li>
-          </ul>
-        </div>
-        <figure class="feat-shot"><img src="../assets/thesis-ev3-photo.jpg" alt="LEGO EV3機器人載具實體組裝"></figure>
-      </div>
-
-      <div class="feat">
-        <div class="feat-body">
-          <span class="feat-tag">使用者互動層</span>
-          <h3>免裝 App,LINE 就能查書、取書</h3>
-          <p>後端 Django + Ngrok 建立 HTTPS 通道,前端以 LINE Messaging API 的 Carousel 選單互動,讀者不需要額外安裝任何 App。指令設計不只「查詢」,還涵蓋借閱、排行與 AI 客服。</p>
-          <ul>
-            <li>「找-書名」→ 模糊比對選單 → 回覆所在書架位置</li>
-            <li>「拿-書名」→ 比對 + 二次確認 → 觸發載具取書</li>
-            <li>「查詢館藏」回報在架總數;「作者-名」列出該作者館藏(每 10 本分頁)</li>
-            <li>「熱門書籍排行」讀取借閱排行表;「問-」串接 AI 客服問答</li>
-          </ul>
-        </div>
-        <figure class="feat-shot"><img src="../assets/thesis-linebot-shot.png" alt="LINE Bot實際查詢對話畫面"></figure>
-      </div>
-
-      <div class="feat">
-        <div class="feat-body">
-          <span class="feat-tag">硬體與資料層</span>
-          <h3>單一資料表 + 旗標接力,四端鬆耦合</h3>
-          <p>感測電路以 Altium Designer 設計並手工雕刻 PCB,搭配 3D 列印客製外殼整合模組;核心設計是<b>用一張 DATA 表當唯一資料來源</b>(書名、座標、status、wait/take/put 等旗標欄位),影像辨識、EV3、ESP32、LINE Bot 四端互不直接溝通,全部透過 PHP API 讀寫同一張表的旗標「接力」溝通——任一端故障不會卡死其他端。另設 OCR_LOG 實驗記錄表與 BORROW_RANK 借閱排行表。</p>
-          <ul>
-            <li>旗標接力:辨識設 wait='ok' → EV3 收到出發 → 紅外線改 status='on' → LINE 查 status 回報位置</li>
-            <li>四端資料庫存取 &lt;200ms、LINE 回應約 0.5~1 秒</li>
-            <li>PHP + MySQL 雲端資料庫,部署門檻低、跨平台皆可串接</li>
-          </ul>
-        </div>
-        <figure class="feat-shot"><img src="../assets/thesis-pcb-photo.jpg" alt="手工PCB雕刻實作成品"></figure>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="results">
-    <p class="eyebrow">研究成果</p>
-    <h2 class="h2">用數據驗證辨識穩定度,而不只是「做出來會動」</h2>
-    <p class="sec-intro">全程自動記錄至 OCR_LOG,累計 <b>2,723 筆辨識資料</b>,涵蓋 <b>29 種測試條件</b>,具可追溯性與可重現性。以下是六項關鍵變因的實測結果。</p>
-    <div class="gal gal-2col">
-      <figure style="background:#fff"><img src="../assets/thesis-chart-color.png" alt="卡片底色配色對辨識正確率之影響" style="aspect-ratio:auto;object-fit:contain"><figcaption>底色配色:黃底黑字 100%,隨機多色底驟降至 10.4%</figcaption></figure>
-      <figure style="background:#fff"><img src="../assets/thesis-chart-font.png" alt="字型對辨識正確率之影響" style="aspect-ratio:auto;object-fit:contain"><figcaption>字型:標準印刷字型皆 ≥95%,手寫體(Ink Free)僅 46.5%</figcaption></figure>
-      <figure style="background:#fff"><img src="../assets/thesis-chart-deskew.png" alt="去歪斜前處理對傾斜文字之改善" style="aspect-ratio:auto;object-fit:contain"><figcaption>去歪斜校正:23° 傾斜未校正僅 3.3%,校正後回升至 95%</figcaption></figure>
-      <figure style="background:#fff"><img src="../assets/thesis-chart-light.png" alt="光線衰減對辨識正確率之影響" style="aspect-ratio:auto;object-fit:contain"><figcaption>光線衰減:1~3 層濾光仍達 100%,5 層過暗驟降至 19.6%</figcaption></figure>
-      <figure style="background:#fff"><img src="../assets/thesis-chart-similar.png" alt="相似書名之辨識正確率" style="aspect-ratio:auto;object-fit:contain"><figcaption>相似書名辨識率 68.8~87.9%(MATA/META/MEAM/MAMA/NEAM)</figcaption></figure>
-      <figure style="background:#fff"><img src="../assets/thesis-chart-confusion.png" alt="相似書名混淆矩陣" style="aspect-ratio:auto;object-fit:contain"><figcaption>混淆矩陣近對角,2,723 筆中僅 1 次跨書名誤判(MEAM→NEAM)</figcaption></figure>
-    </div>
-    <p class="sec-intro" style="margin-top:22px">這正是系統加入 <b>Levenshtein 距離模糊比對</b>的原因——當 OCR 辨識結果不完整或有錯字時,仍能對照資料庫校正回最接近的正確書名,把整體可用性從「靠運氣」拉到「可預期」。模糊比對門檻(0.60)也是從這批實測數據調參得出,不是憑感覺訂的參數。</p>
-  </section>
-
-  <section id="tradeoffs">
-    <p class="eyebrow">設計取捨與研究限制</p>
-    <h2 class="h2">誠實面對:哪些做法被我否決了、系統還有哪些限制</h2>
-    <p class="sec-intro">好的工程判斷不只是「做出來」,也包含「測過為什麼不這樣做」。以下是實測後的取捨與目前系統誠實承認的限制。</p>
-    <div class="techgrid">
-      <div class="tcard">
-        <h4>為何不採 Otsu 二值化做前處理</h4>
-        <p>實測發現深色背景會被整片轉黑、書名筆畫被吃掉(Words=0、平均信心度 0%),自動 ROI 裁切也常誤切到書名;最終前處理只保留「放大+灰階+CLAHE(+去歪斜)」,不做二值化與 ROI——這是比較過才捨棄的做法。</p>
-      </div>
-      <div class="tcard">
-        <h4>為何選 Tesseract,不用雲端 OCR</h4>
-        <p>PaddleOCR/Google Vision 辨識率更高,但一個吃硬體資源、一個要連網且收費;書名多半是單一整塊文字,Tesseract 離線免費、可調 <span class="mono">--psm 6</span> 剛好符合需求,故選擇成本較低的方案。</p>
-      </div>
-      <div class="tcard">
-        <h4>雲端資料庫的已知限制</h4>
-        <p>PHP API 以 HTTP GET 帶 SQL 呼叫,目前僅靠金鑰驗證、<b>沒有注入防護</b>;單表設計大規模擴充有限;依賴網路連線品質。這些是實際存在的技術債,不是我不知道問題所在。</p>
-      </div>
-      <div class="tcard">
-        <h4>LINE Bot 通道的限制</h4>
-        <p>Ngrok 建立的 HTTPS 通道僅適合開發階段(網址會變動),正式上線需改用固定網址的雲端主機;且整體查詢功能依賴外部 LINE API 的可用性。</p>
-      </div>
-      <div class="tcard">
-        <h4>EV3 硬體本身的限制</h4>
-        <p>樂高教育套件承重有限,僅適合輕量示範,無法承載真實圖書館等級的書籍重量與運送距離,要落地仍需換成工業級載具機構。</p>
-      </div>
-      <div class="tcard">
-        <h4>模糊比對門檻是經驗值</h4>
-        <p>0.60 的判定門檻是實測調參後的結果,兼顧準確與容錯,但仍屬經驗值,換一批書名分佈可能需要重新校準,不是放諸四海皆準的常數。</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="modules">
-    <p class="eyebrow">功能模組總覽</p>
-    <h2 class="h2">十三個模組,拼成一套完整系統</h2>
-    <div class="techgrid">
-      <div class="tcard"><h4>OCR 定時擷取</h4><p>Logitech C270 攝影機每約 1.5 秒擷取一次畫面,持續監看還書狀況</p></div>
-      <div class="tcard"><h4>紅外線格位感測</h4><p>ESP32 + 9 顆紅外線,監控 3×3 書架格位在架狀態,與攝影機為獨立路徑</p></div>
-      <div class="tcard"><h4>OCR 前處理</h4><p>OpenCV 影像前處理,提升文字辨識清晰度</p></div>
-      <div class="tcard"><h4>模糊比對校正</h4><p>Levenshtein 距離對照資料庫,修正 OCR 辨識誤差</p></div>
-      <div class="tcard"><h4>去歪斜校正</h4><p>Otsu 二值化+minAreaRect 抓書卡輪廓,校正傾斜書名</p></div>
-      <div class="tcard"><h4>EV3 移動控制</h4><p>EV3Dev 控制載具移動、定位</p></div>
-      <div class="tcard"><h4>EV3 取放對接</h4><p>機構升降、對接書架,完成實體取放動作</p></div>
-      <div class="tcard"><h4>雲端即時同步</h4><p>PHP + MySQL,館藏狀態即時更新供各端查詢</p></div>
-      <div class="tcard"><h4>LINE Bot 五指令</h4><p>找書、拿書、查詢館藏、查作者、借閱排行,五種互動指令</p></div>
-      <div class="tcard"><h4>PCB 電路設計</h4><p>Altium Designer 設計並手工雕刻感測電路板</p></div>
-      <div class="tcard"><h4>3D 列印外殼</h4><p>客製化書籍外殼,輔助感測定位與保護硬體</p></div>
-      <div class="tcard"><h4>學術發表</h4><p>研究成果以海報論文形式於全國性學術研討會發表</p></div>
-      <div class="tcard"><h4>跨平台整合</h4><p>Python / PHP / C++ 跨語言,嵌入式到雲端跨平台串接</p></div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <p class="eyebrow">實作紀錄</p>
-    <h2 class="h2">系統架構與現場照片</h2>
-    <div class="gal">
-      <figure><img src="../assets/thesis-esp32-photo.jpg" alt="ESP32與紅外線感測器組裝"><figcaption>ESP32 + 紅外線感測模組實體組裝</figcaption></figure>
-      <figure><img src="../assets/thesis-3dprint.png" alt="3D列印書籍外殼設計"><figcaption>3D 列印書籍外殼設計圖</figcaption></figure>
-      <figure><img src="../assets/thesis-pcb-photo2.jpg" alt="PCB雕刻成品另一角度"><figcaption>手工 PCB 雕刻電路板</figcaption></figure>
-    </div>
-  </section>
-
-  <section id="demo">
-    <p class="eyebrow">系統展示</p>
-    <h2 class="h2">想看實際運作?這是完整影片</h2>
-    <div style="background:#000;border:1px solid var(--line);border-radius:18px;overflow:hidden;
-      box-shadow:0 2px 4px rgba(30,25,15,.03),0 18px 40px -30px rgba(30,25,15,.4)">
-      <video src="../assets/videos/thesis-demo-web.mp4" controls style="width:100%;display:block"></video>
-    </div>
-  </section>
-
-  <section id="tech">
-    <p class="eyebrow">技術棧</p>
-    <h2 class="h2">跨語言、跨平台的軟硬體整合</h2>
-    <div class="techgrid">
-      <div class="tcard">
-        <h4>嵌入式 / 硬體</h4>
-        <p>Logitech C270 USB 攝影機、ESP32、紅外線感測器、EV3Dev(Linux)、Altium Designer PCB 設計、3D 列印</p>
-      </div>
-      <div class="tcard">
-        <h4>影像與演算法</h4>
-        <p>OpenCV、Tesseract OCR、Levenshtein 距離模糊比對、Python</p>
-      </div>
-      <div class="tcard">
-        <h4>機器人控制</h4>
-        <p>LEGO EV3Dev、Python 動作控制、感測定位</p>
-      </div>
-      <div class="tcard">
-        <h4>後端與資料庫</h4>
-        <p>Django、PHP、MySQL 雲端資料庫</p>
-      </div>
-      <div class="tcard">
-        <h4>使用者介面</h4>
-        <p>LINE Messaging API、Carousel Template</p>
-      </div>
-      <div class="tcard">
-        <h4>整合能力</h4>
-        <p>跨語言(Python/PHP/C++)、跨平台(嵌入式/伺服器/行動通訊)系統整合設計</p>
-      </div>
-    </div>
-    <div class="stacktags">
-      <span>ESP32</span><span>C/C++</span><span>Python</span><span>OpenCV</span>
-      <span>Tesseract OCR</span><span>CLAHE</span><span>EV3Dev</span><span>Django</span>
-      <span>PHP</span><span>MySQL</span><span>LINE Messaging API</span><span>Altium Designer</span>
-    </div>
-  </section>
-
-  <section id="future">
-    <p class="eyebrow">未來發展方向</p>
-    <h2 class="h2">已知限制之外,下一步可以往哪走</h2>
-    <div class="techgrid">
-      <div class="tcard"><h4>深度學習 OCR</h4><p>導入 CRNN / TrOCR / PaddleOCR,取代傳統 OCR 提升複雜書封辨識率</p></div>
-      <div class="tcard"><h4>RFID + 影像雙重識別</h4><p>結合 RFID 與影像辨識雙重確認身分,降低誤判機率</p></div>
-      <div class="tcard"><h4>多書架 / 多載具</h4><p>擴充為分散式系統,支援多書架區域與多台載具協同運作</p></div>
-      <div class="tcard"><h4>借還大數據分析</h4><p>累積借閱紀錄做趨勢分析,支援選書、汰換決策</p></div>
-      <div class="tcard"><h4>LINE Bot + LLM</h4><p>導入大型語言模型,提供智慧選書推薦與自然語言問答</p></div>
-    </div>
-  </section>
-
-  <section id="note">
-    <div class="note">
-      這套系統是求學階段獨立完成的碩士論文,重點是<b>把嵌入式感測、影像辨識、機器人控制、雲端服務、通訊軟體這幾個不相關的技術整合成一套會動的系統</b>。用實測數據找系統的真實邊界、老實列出限制,也是寫這篇論文練出來的習慣。
-    </div>
-  </section>
-
-  <footer>
-    作品集 · <span class="name-slot">聯絡方式應徵時提供</span> · <a class="back" href="../index.html" style="margin:0">← 返回作品集</a>
-  </footer>
+<footer>
+  作品集 · <span class="name-slot">聯絡方式應徵時提供</span>
+</footer>
 
 </div>
 </body>
