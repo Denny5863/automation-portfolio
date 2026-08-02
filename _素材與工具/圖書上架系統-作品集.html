@@ -168,34 +168,17 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <tr><th>模糊比對門檻是經驗值</th><td>0.60 是實測調參的結果,兼顧準確跟容錯,但換一批書名分佈可能要重新校準,不是固定不變的數字。</td></tr>
 </table>
 
-<h2><span class="idx">05</span>功能模組</h2>
-<table class="spec">
-  <tr><th>OCR 定時擷取</th><td>Logitech C270 每約 1.5 秒擷取一次畫面,持續監看還書狀況</td></tr>
-  <tr><th>紅外線格位感測</th><td>ESP32 + 9 顆紅外線,監控 3×3 書架格位狀態,與攝影機是獨立路徑</td></tr>
-  <tr><th>OCR 前處理</th><td>OpenCV 影像前處理,提升文字辨識清晰度</td></tr>
-  <tr><th>模糊比對校正</th><td>Levenshtein 距離對照資料庫,修正 OCR 辨識誤差</td></tr>
-  <tr><th>去歪斜校正</th><td>Otsu 二值化+minAreaRect 抓書卡輪廓,校正傾斜書名</td></tr>
-  <tr><th>EV3 移動控制</th><td>EV3Dev 控制載具移動、定位</td></tr>
-  <tr><th>EV3 取放對接</th><td>機構升降、對接書架,完成實體取放動作</td></tr>
-  <tr><th>雲端即時同步</th><td>PHP + MySQL,館藏狀態即時更新供各端查詢</td></tr>
-  <tr><th>LINE Bot 五指令</th><td>找書、拿書、查詢館藏、查作者、借閱排行</td></tr>
-  <tr><th>PCB 電路設計</th><td>Altium Designer 設計並手工雕刻感測電路板</td></tr>
-  <tr><th>3D 列印外殼</th><td>客製化書籍外殼,輔助感測定位與保護硬體</td></tr>
-  <tr><th>學術發表</th><td>研究成果以海報論文形式於全國性學術研討會發表</td></tr>
-  <tr><th>跨平台整合</th><td>Python / PHP / C++ 跨語言,嵌入式到雲端跨平台串接</td></tr>
-</table>
-
-<h2><span class="idx">06</span>現場照片</h2>
+<h2><span class="idx">05</span>現場照片</h2>
 <div class="gal">
   <figure><img src="../assets/thesis-esp32-photo.jpg" alt="ESP32與紅外線感測器組裝"><figcaption>ESP32 + 紅外線感測模組實體組裝</figcaption></figure>
   <figure><img src="../assets/thesis-3dprint.png" alt="3D列印書籍外殼設計"><figcaption>3D 列印書籍外殼設計圖</figcaption></figure>
   <figure><img src="../assets/thesis-pcb-photo2.jpg" alt="PCB雕刻成品另一角度"><figcaption>手工 PCB 雕刻電路板</figcaption></figure>
 </div>
 
-<h2 id="demo"><span class="idx">07</span>展示影片</h2>
+<h2 id="demo"><span class="idx">06</span>展示影片</h2>
 <video src="../assets/videos/thesis-demo-web.mp4" controls></video>
 
-<h2><span class="idx">08</span>技術棧</h2>
+<h2><span class="idx">07</span>技術棧</h2>
 <table class="spec">
   <tr><th>嵌入式 / 硬體</th><td>Logitech C270、ESP32、紅外線感測器、EV3Dev(Linux)、Altium Designer、3D 列印</td></tr>
   <tr><th>影像與演算法</th><td>OpenCV、Tesseract OCR、Levenshtein 距離模糊比對、Python</td></tr>
@@ -205,7 +188,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
 </table>
 <p class="small mono">ESP32 · C/C++ · Python · OpenCV · Tesseract OCR · CLAHE · EV3Dev · Django · PHP · MySQL · LINE Messaging API · Altium Designer</p>
 
-<h2><span class="idx">09</span>未來方向</h2>
+<h2><span class="idx">08</span>未來方向</h2>
 <table class="spec">
   <tr><th>深度學習 OCR</th><td>導入 CRNN / TrOCR / PaddleOCR,取代傳統 OCR 提升複雜書封辨識率</td></tr>
   <tr><th>RFID + 影像雙重識別</th><td>結合 RFID 與影像辨識雙重確認身分,降低誤判機率</td></tr>
