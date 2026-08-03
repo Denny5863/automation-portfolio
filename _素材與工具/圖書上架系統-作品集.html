@@ -46,6 +46,9 @@ ul.plain li{margin:4px 0}
 .imgblock{margin:14px 0}
 .imgblock img{width:100%;max-height:360px;object-fit:cover;border:1px solid var(--border);border-radius:4px;display:block}
 .imgblock.contain img{object-fit:contain;background:#fff;max-height:none}
+.imgblock.fit img{object-fit:contain;background:#fff;max-height:480px}
+.imgblock.phone{max-width:280px;margin-left:auto;margin-right:auto}
+.imgblock.phone img{object-fit:contain;background:#fff;max-height:560px}
 .imgblock figcaption{color:var(--soft);font-size:13px;margin-top:4px}
 
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0}
@@ -115,7 +118,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <li>2,723 筆辨識資料、29 種測試條件,全程寫入 OCR_LOG 可追溯</li>
   <li>刻意不採 Otsu 二值化做前處理(原因見下方「設計取捨」)</li>
 </ul>
-<figure class="imgblock"><img src="../assets/thesis-ocr-shot.png" alt="OCR即時辨識書背文字畫面"></figure>
+<figure class="imgblock fit"><img src="../assets/thesis-ocr-processed.png" alt="OCR處理管線實際畫面,含辨識信心度與比對結果"><figcaption>實際處理畫面:Resize→灰階→CLAHE→Tesseract OCR,信心度 95%、模糊比對分數 1.000,判定 PASS</figcaption></figure>
 
 <h3>機器人取放層 — 樂高刷成連網 Linux 機器人</h3>
 <p>把 LEGO EV3 刷成 EV3Dev(Linux),用 Python 寫控制邏輯,直接連線查雲端資料庫。四顆馬達分工:X 軸水平移動、Y 軸升降、對接馬達推出/收回、滾輪馬達撥書入架。定位不用編碼器,在地面/書架貼色塊,用顏色感測器邊走邊數格數。</p>
@@ -124,7 +127,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <li>對接後用紅/綠色塊二次確認對準,反射光感測器確認書已送入書架</li>
   <li>輪詢資料庫 status 欄位,變成 on 才算歸位完成</li>
 </ul>
-<figure class="imgblock"><img src="../assets/thesis-ev3-photo.jpg" alt="LEGO EV3機器人載具實體組裝"></figure>
+<figure class="imgblock fit"><img src="../assets/thesis-ev3-photo.jpg" alt="LEGO EV3機器人載具實體組裝"></figure>
 
 <h3>使用者互動層 — LINE 查書、取書</h3>
 <p>後端 Django + Ngrok 建 HTTPS 通道,前端用 LINE Messaging API 的 Carousel 選單,讀者不用裝額外的 App。指令不只查詢,還有借閱、排行、AI 客服。</p>
@@ -134,7 +137,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <li>「查詢館藏」回報在架總數;「作者-名」列出該作者館藏(每10本分頁)</li>
   <li>「熱門書籍排行」讀借閱排行表;「問-」接 AI 客服問答</li>
 </ul>
-<figure class="imgblock"><img src="../assets/thesis-linebot-shot.png" alt="LINE Bot實際查詢對話畫面"></figure>
+<figure class="imgblock phone"><img src="../assets/thesis-linebot-shot.png" alt="LINE Bot實際查詢對話畫面"></figure>
 
 <h3>硬體與資料層 — 單一資料表 + 旗標接力</h3>
 <p>感測電路用 Altium Designer 設計並手工雕刻 PCB,搭配 3D 列印外殼整合模組。ESP32 端韌體用 C/C++(Arduino 框架)撰寫,輪詢 9 顆紅外線感測器讀值判斷書架格位是否有書,再呼叫雲端 API 回寫狀態。核心設計是用一張 DATA 表當唯一資料來源(書名、座標、status、wait/take/put 等旗標欄位),影像辨識、EV3、ESP32、LINE Bot 四端不直接溝通,全部透過 PHP API 讀寫同一張表的旗標接力——任一端故障不會卡死其他端。另設 OCR_LOG 實驗記錄表跟 BORROW_RANK 借閱排行表。</p>
@@ -170,6 +173,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
 
 <h2><span class="idx">05</span>現場照片</h2>
 <div class="gal">
+  <figure><img src="../assets/thesis-shelf-sensors.jpg" alt="書架9格紅外線感測器實測,多顆同時偵測到書本亮燈"><figcaption>3×3 書架格位,紅外線感測器偵測到書本時亮燈</figcaption></figure>
   <figure><img src="../assets/thesis-esp32-photo.jpg" alt="ESP32與紅外線感測器組裝"><figcaption>ESP32 + 紅外線感測模組實體組裝</figcaption></figure>
   <figure><img src="../assets/thesis-3dprint.png" alt="3D列印書籍外殼設計"><figcaption>3D 列印書籍外殼設計圖</figcaption></figure>
   <figure><img src="../assets/thesis-pcb-photo2.jpg" alt="PCB雕刻成品另一角度"><figcaption>手工 PCB 雕刻電路板</figcaption></figure>

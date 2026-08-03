@@ -82,7 +82,7 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <h2><span class="idx">02</span>技能</h2>
   <table>
     <tr><th>電控 / 現場實務</th><td>PLC 階梯圖(三菱 GX Works3)、工業配線、變壓器裝修、配電盤裝配、單線圖／配電圖判讀、AutoCAD</td></tr>
-    <tr><th>軟體 / 系統整合</th><td>Node.js、React、Python、PHP／MySQL、Linux(SSH 遠端環境)、ESP32／感測器整合</td></tr>
+    <tr><th>軟體 / 系統整合</th><td>Node.js、React、Python、C/C++(ESP32 韌體)、PHP／MySQL、Linux(SSH 遠端環境)、感測器整合</td></tr>
   </table>
 
   <h2><span class="idx">03</span>證照</h2>
@@ -100,13 +100,13 @@ footer{margin-top:50px;border-top:1px solid var(--border);padding-top:16px;color
   <div class="worklist">
 
     <a class="workitem" href="_素材與工具/髮藝POS-作品集.html">
-      <span class="tag">商用產品 · 2026/08 試營運</span>
+      <span class="tag">商用產品 · 已交付髮廊實際使用中</span>
       <h3>髮藝沙龍 POS 管理系統</h3>
-      <p>自己設計開發的美髮門市管理系統,涵蓋顧客資料、業績抽成、庫存、營業額統計,依「老闆／設計師」分層設計權限畫面,含老闆手機遠端看店功能。技術:<code class="stat">Node.js</code> <code class="stat">React</code> <code class="stat">SQLite</code> <code class="stat">Ed25519 簽章授權</code></p>
+      <p>從需求分析、資料庫設計、前後端開發到封裝安裝,一人獨立完成的美髮門市管理系統,是在職場學徒工作、同時撰寫碩士論文期間同步開發完成。2026/8 起交付一家髮廊,店家用自己的帳號、自己的電腦實際收錢營運中,不是展示用 Demo。涵蓋顧客資料、業績抽成、庫存、營業額統計,依「老闆／設計師」分層設計權限畫面,並支援老闆手機遠端看店。技術:<code class="stat">Node.js</code> <code class="stat">React</code> <code class="stat">SQLite</code> <code class="stat">Ed25519 簽章授權</code></p>
       <ul class="plain">
-        <li>授權金鑰機制,防止未授權複製</li>
-        <li>開機自我修復與多重自動備份</li>
-        <li>老闆手機遠端查看店內營運狀況(Tailscale)</li>
+        <li>單店買斷制,資料留在店內,對比市售雲端月租產品的差異化設計</li>
+        <li>Ed25519 簽章授權金鑰機制,防止未授權複製</li>
+        <li>開機自我修復與多重自動備份,老闆手機遠端查看店內營運狀況(Tailscale)</li>
       </ul>
       <img class="thumb" src="_素材與工具/web/00-login.jpg" alt="髮藝POS登入畫面">
     </a>
